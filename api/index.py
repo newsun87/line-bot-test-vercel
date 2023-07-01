@@ -39,20 +39,25 @@ def callback():
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):    
     global working_status    
-    if event.message.type != "text":
+    if event.message.type == "text":
+        working_status = True
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=event.message.text))  
         return    
-    if event.message.text == "啟動":
+    '''if event.message.text == "啟動":
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="我是時下流行的AI智能，目前可以為您服務囉，歡迎來跟我互動~"))  
-        return 
-    if event.message.text != "啟動":
+        return '''
+    '''if event.message.text != "啟動":
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="Hello Line Bot~"))  
-        return 
+        return '''
+    
           
         
 if __name__ == "__main__": 
