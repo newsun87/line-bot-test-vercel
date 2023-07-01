@@ -45,13 +45,14 @@ def handle_message(event):
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="我是時下流行的AI智能，目前可以為您服務囉，歡迎來跟我互動~"))        
-    else: 
+            TextSendMessage(text="我是時下流行的AI智能，目前可以為您服務囉，歡迎來跟我互動~"))  
+        return 
+    '''else: 
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=f"我收到的訊息：{event.message.text}")
-        return   
+            TextSendMessage(text=f"我收到的訊息：{event.message.text}")'''
+          
         
 if __name__ == "__main__": 
     app.run()
